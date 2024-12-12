@@ -11,6 +11,9 @@ gcc mgmr.c -o mgmr
 ./mgrm
 ```
 
+Resources
+* Lab exercise: https://cse.iitkgp.ac.in/~bivasm/os_notes/LA2.pdf
+
 ## Demo
 ```bash
 gbhat@gbhat:~/cs_discussions/lab-assignment2$ gcc mgmr.c -o mgmr
