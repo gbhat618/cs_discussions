@@ -16,21 +16,11 @@ int main()
     struct tm *t;
     char time[26];
     d = opendir(".");
-    /*
-    The program is expected to skip the current and parent directory; i.e. `.` and `..`
-    However, the ordering of the files appears to be not guaranteed that the first two files are `.` and `..`
 
-    Hence commenting out the following lines, instead implementing the skip logic in the while loop.
     readdir(d);
     readdir(d);
-    */
     while ((de = readdir(d)) != NULL)
     {
-        if (
-            de->d_name[0] == '.' && (de->d_name[1] == '\0' || (de->d_name[1] == '.' && de->d_name[2] == '\0'))
-        ) {
-            continue;
-        }
         stat(de->d_name, &buf);
         // File Type
         if (S_ISDIR(buf.st_mode))
