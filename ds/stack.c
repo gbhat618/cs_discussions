@@ -72,7 +72,7 @@ void peek(STACK* s, int idx) {
     printf("data at peek: %d\n", s->data[idx]);
 }
 
-void print(STACK* s) {
+void show(STACK* s) {
     printf("stack------\n");
     for (int i = s->top; i >= 0; i--) {
         printf("%d\n", s->data[i]);
@@ -83,27 +83,27 @@ void print(STACK* s) {
 int main() {
     STACK s;
     s.top = -1;
-    print(&s);
+    show(&s);
     pop(&s);
     push(&s, 10);
-    print(&s);
+    show(&s);
     push(&s, 3);
-    print(&s);
+    show(&s);
     push(&s, 7);
-    print(&s);
+    show(&s);
     push(&s, 9);
-    print(&s);
+    show(&s);
     push(&s, 11);
-    print(&s);
+    show(&s);
     push(&s, 20); // overflow
     peek(&s, 4); // here is peek
-    print(&s);
+    show(&s);
     pop(&s);
-    print(&s);
+    show(&s);
     pop(&s);
-    print(&s);
+    show(&s);
     pop(&s);
-    print(&s);
+    show(&s);
     /*
     stack------
     3
@@ -111,7 +111,7 @@ int main() {
     ----------
     */
     push(&s, 30);
-    print(&s);
+    show(&s);
     pop(&s);
-    print(&s);
+    show(&s);
 }
