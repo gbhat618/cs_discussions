@@ -11,7 +11,6 @@ void func1(int i) {
     func1(i + 1);
 }
 
-
 int main() {
     func1(1);
 }
