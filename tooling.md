@@ -23,3 +23,16 @@
 ### Helpful Apps
 
 * Filesystem size check: [WinDirStat](https://windirstat.net/download.html)
+
+## Ubuntu
+
+* PDF Reader: [Okular](https://okular.kde.org/download/)
+* Typing: [Klavaro](https://flathub.org/apps/net.sourceforge.Klavaro)
+
+### PDF document fixing
+ * There are some PDF which are not searchable and not selectable text or highlightable.
+   Install `ocrmypdf`, and process the pdf.
+   ```bash
+   sudo apt install ocrmypdf
+   ocrmypdf 3rd_syllabus.pdf 3rd_syllabus_fixed_version.pdf
+   ```
