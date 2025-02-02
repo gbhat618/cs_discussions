@@ -57,7 +57,7 @@ void print_help() {
  *
  */
 	printf("Command : Action\n");
-	printf("c : Continue a suspended job\n");
+	printf("r : create a new child job\n");
 	printf("h : Print this help message\n");
 }
 
@@ -70,28 +70,37 @@ void start_new_job() {
 	// fork a child
 	pid_t pid = fork();
 	if (pid > 0) {
-		printf("Child pid is: %d\n", pid);
+		printf("This is parent; forked child's pid is: %d\n", pid);
+	} else if (pid == 0) {
+		printf("I am child process: PID %d\n", getpid());
 		// replacing the child's program with job executable
 		execl("./job", "my_forked_job", randomLetterString, NULL);
-	} else if (pid == 0) {
-		printf("This is parent: %d\n", pid);
 	} else { // this is a negative number
 		printf("Forking failed, no child created\n");
 	}
 }
 
-
 int main() {
 	char input;
-	scanf("%c", &input);
 	// printf("You have typed: `%c`\n", input);
-
-	if (input == 'h') {
-		print_help();	
-	} else if (input == 'r') {
-		start_new_job();
-	} else {
-		printf("Given input `%c` is not yet supported\n", input);	
+	for(;;)
+	{
+		if (input != 'h') {
+			print_help();
+		}
+		input = getchar();
+		getchar(); // to consume the newline character (i.e. Enter key)
+		switch(input) {
+			case 'h':
+				print_help();
+				break;
+			case 'r':
+				start_new_job();
+				break;
+			default:
+				printf("Given input `%c` is not yet supported\n", input);
+		}
+		printf("\n Enter choice commad:\n");
 	}
-
+	return 0;
 }
